@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Tech Fest</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="share.css">
+  <!-- <link rel="stylesheet" href="card.css"> -->
+  <!-- <link rel="stylesheet" href="cards.css"> -->
+  <link rel="icon" href="logo.png">
+</head>
+
+
+<style>
+
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+  #address{
+    color: yellow;
+  }
+  .tiles {
+    justify-content: center;
+  }
+
+  .flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+  }
+
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* Position the front and back side */
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+  }
+
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+
+  .flip-card-front img {
+    height: 200px;
+    width: 300px;
+  }
+
+
+  /* For animated background in light mode */
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+
+  /* Style the back side */
+  .flip-card-back {
+    /* background-color: dodgerblue; */
+    background: linear-gradient(45deg, #f76f6f, #f7c06d, #55bbee, #67f797);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    color: white;
+    transform: rotateY(180deg);
+  }
+</style>
+
+
+
+<script src="index.js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("YOhKyrdNcLQKGj8uB");
+      })();
+    </script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    #profile {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%; 
+     */
+
+    h1 {
+        margin-top: 10px;
+        color: #fb5607;
+    }
+    h2{
+       color: #ffbe0b;
+    }
+    h6{
+      color: #ffbe0b;
+    }
+</style>
+
+
+
+<!-- ----------address------------- -->
+<style>
+  /* Add CSS styles here */
+  .container {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .left-content {
+      flex: 1;
+  }
+
+  .right-content {
+      flex: 1;
+  }
+
+  .mapouter {
+      position: relative;
+      text-align: right;
+  }
+
+  .gmap_canvas {
+      overflow: hidden;
+      background: none;
+  }
+
+  .image {
+      text-align: right;
+      /* height: 300px; */
+  }
+
+
+  /*CSS FOR CARDS */
+  .tiles {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .flip-card {
+    flex: 0 1 calc(25% - 20px); /* Adjust the width as needed for responsiveness */
+    margin: 10px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .flip-card:hover {
+    transform: scale(1.05);
+  }
+
+  .flip-card-inner {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .flip-card-front img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .flip-card-back {
+    background: linear-gradient(45deg, #f76f6f, #f7c06d, #55bbee, #67f797);
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+
+
+
+</style>
+
+
+
+
+
+<body>
+
+
+
+  <div class="shareit">
+    <!-- facebook -->
+    <a class="facebook" href="https://www.facebook.com" target="blank" title="facebook"><i class="fa fa-facebook"></i></a>
+  
+    <!-- twitter -->
+    <a class="twitter" href="https://twitter.com" target="blank" title="twitter"><i class="fa fa-twitter"></i></a>
+  
+    <!-- linkedin -->
+    <a class="linkedin" href="https://www.linkedin.com" target="blank" title="linkedin"><i class="fa fa-linkedin"></i></a>
+
+    <!-- instagram -->
+    <a class="instagram" href="https://www.instagram.com/" target="blank" title="reddit"><i class="fa fa-instagram"></i></a>
+
+ 
+   
+    <!-- yt -->
+    <a class="youtube" href="https://www.youtube.com/" target="blank" title="pinterest"><i class="fa fa-youtube"></i></a>
+  </div>
+
+
+
+
+
+  <header>
+    <a href="index.html">
+      <img src="techlogo-removebg-preview.png" alt="" id="mode">
+    </a>
+    <!-- <button id="dark-mode-toggle">Toggle Dark Mode</button> -->
+    <br>
+    
+    
+    <h1><strong>TantraFiesta</strong></h1>
+    <h6>Genesis Unleased : Ai's Dawn</h6>
+  </header>
+  
+  <nav>
+    <ul>
+      
+      <li><img src="moon.png" alt="" id="icon" style="align-content: end;"></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <br>
+    <p>Tantrafiesta is the annual science and technology festival of the Indian Institute of Information Technology,
+      Nagpur. Tantrafiesta hosts a plethora of social initiatives and outreach programs such as hackathons, coding
+      contests, robo-races, debates, and seminars that help inspire the next generation of scientists and
+      engineers.
+      <br><br>
+
+      Tantrafiesta aims to provide a platform in order to establish a forum that will enable the exchange of
+      knowledge, experience, and information related to a range of emerging technologies. This year, TantaFiesta
+      is focusing on the use of greener technologies, and how utilizing greener technologies is the way forward.
+
+    </p>
+  </section>
+
+  <section id="events">
+    <h2>Events</h2>
+    <p>Check out our exciting events!</p>
+    <br>
+    <!-- 
+        <div class="card1">
+               
+        </div>
+        <div class="card2">
+              
+        </div>
+        <div class="card3">
+               
+        </div>
+        <div class="card4">
+               
+        </div> -->
+
+    <!-- <div class = container>
+            <div class = card>
+       
+                <img src="c1.jpg">
+
+              <div class = content>
+                <h3>This is content</h3>
+
+                <p> 
+                    By Elevate
+                </p>
+              </div>
+            </div>    
+          </div> -->
+
+
+
+    <div class="tiles">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img
+            src="https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65020a46a9540_gen-a-thon.jpg?d=700x400"
+            alt="Avatar">
+          </div>
+          
+          <div class="flip-card-back">
+            <a href="https://unstop.com/hackathons/gen-a-thon-tantrafiesta-23-iiit-nagpur-760544" target="_blank">
+            <h1>Elevate</h1>
+              <p>Click for more info</p>
+              <BR>
+                <p>Indian Institute of Information Technology NAGPUR</p>
+              </div>
+            </a>
+
+        </div>
+      </div>
+
+
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img
+              src="https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/6502098479999_game-jam-event.jpg?d=700x400"
+              alt="Avatar">
+          </div>
+          <div class="flip-card-back">
+            <h1>Sentient Strife</h1>
+            <p>Click for more info</p>
+            <BR>
+            <p>Indian Institute of Information Technology NAGPUR</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img
+              src="https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/650209f47a6c7_bytecraft.jpg?d=700x400"
+              alt="Avatar">
+          </div>
+          <div class="flip-card-back">
+            <h1>Byte Craft</h1>
+            <p>Click for more info</p>
+            <BR>
+            <p>Indian Institute of Information Technology NAGPUR</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img
+              src="https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65020a1194b4b_robo-rumble.jpg?d=700x400"
+              alt="Avatar">
+          </div>
+          <div class="flip-card-back">
+            <h1>ROBO RUMBLE</h1>
+            <p>Click for more info</p>
+            <BR>
+            <p>Indian Institute of Information Technology NAGPUR</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+  </section>
+
+  <section id="schedule">
+    <h2>Schedule</h2>
+    <p>Due to Lack of availablity of information  . This is just a sample .</p>
+  </section>
+
+
+  <section id="Location">
+    <h2>Venue</h2>
+
+
+
+    <!-- googlemaps -->
+
+
+    <!-- <div class="mapouter">
+      <div class="gmap_canvas">
+        <iframe width="500" height="350" id="gmap_canvas"
+          src="https://maps.google.com/maps?q=iiit%20nagpur&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+          scrolling="no" marginheight="0" marginwidth="0">
+     
+          
+      
+          <style>
+            .mapouter {
+              position: relative;
+              text-align: right;
+              height: 350px;
+              width: 500px;
+            }
+            </style>
+           
+        <style>
+          .gmap_canvas {
+            overflow: hidden;
+            background: none ;
+            height: 350px;
+            width: 500px;
+          }
+          </style>
+      </div>
+    </div> -->
+
+
+    <div class="container">
+      <div class="left-content">
+          <div class="mapouter">
+              <div class="gmap_canvas">
+                  <iframe width="500" height="350" id="gmap_canvas"
+                      src="https://maps.google.com/maps?q=iiit%20nagpur&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                      frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                  </iframe>
+              </div>
+          </div>
+      </div>
+      <div class="right-content">
+       
+          <img src="clgmap.png" height="350px">
+      </div>
+  </div>
+    
+    
+
+    <h4 style="color:#ff006e;">Address</h4>
+    <p>Survey No. 140,141/1 behind Br. Sheshrao Wankhade Shetkari Sahkari Soot Girni, Village - Waranga, PO -
+      Dongargaon(Butibori), Tehsil- Nagpur (Rural), District Nagpur, Maharashtra- 441108</p>
+
+  </section>
+
+  <section id="contact">
+    <!-- Contact Us section  -->
+    <div class="contact-section">
+      <div class="contact-form">
+        <h3>Contact Us</h3>
+        <form>
+          <div class="form-group">
+            <h5 for="name">Name</h5>
+            <input type="text" class="form-control" id="name" placeholder="Enter name">
+          </div>
+          <div class="form-group">
+            <h5 for="email">Email</h5>
+            <input type="email" class="form-control" id="email" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <h5 for="message">Message</h5>
+            <textarea class="form-control" id="message" rows="3"></textarea>
+          </div>
+          <button class="btn btn-primary" onclick="sendMail()">Submit</button>
+        </form>
+      </div>
+<center>
+
+  <iframe src="ripple.html" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ></iframe>
+
+</center>
+    </div>
+  </section>
+
+
+
+
+
+  <footer>
+    <p style="color: yellow;">&copy; TantraFiesta 2023</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

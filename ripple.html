@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height:100vh ;
+            /* background-color: black; */
+        }
+
+        .container{
+            position: absolute;
+            top: 40%;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .item{
+            position: absolute;
+            background-color: transparent;
+            width: calc(var(--i) * 2.5vmin);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 0.9vmin solid blue;
+            transform-style: preserve-3d;
+            transform: rotateX(70deg) translateZ(50px);
+            animation: my-move 3s ease-in-out calc(var(--i) * 0.08s) infinite;
+        }
+
+        @keyframes my-move {
+            0%,
+            100%{ 
+                transform:rotateX(70deg) translateZ(50px) translateY(0px);
+                filter: hue-rotation(0deg);
+            }
+            50%{
+                transform:rotateX(70deg) translateZ(50px) translateY(-70vmin);
+                filter:hue-rotate(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item" style="--i:0"></div>
+        <div class="item" style="--i:1"></div>
+        <div class="item" style="--i:2"></div>
+        <div class="item" style="--i:3"></div>
+        <div class="item" style="--i:4"></div>
+        <div class="item" style="--i:5"></div>
+        <div class="item" style="--i:6"></div>
+        <div class="item" style="--i:7"></div>
+        <div class="item" style="--i:8"></div>
+        <div class="item" style="--i:9"></div>
+        <div class="item" style="--i:10"></div>
+        <div class="item" style="--i:11"></div>
+        <div class="item" style="--i:12"></div>
+        <div class="item" style="--i:13"></div>
+        <div class="item" style="--i:14"></div>
+        <div class="item" style="--i:15"></div>
+        <div class="item" style="--i:16"></div>
+        <div class="item" style="--i:17"></div>
+        <div class="item" style="--i:18"></div>
+        <div class="item" style="--i:19"></div>
+        <div class="item" style="--i:20"></div>
+        <div class="item" style="--i:21"></div>
+        <div class="item" style="--i:22"></div>
+        <div class="item" style="--i:23"></div>
+        <div class="item" style="--i:24"></div>
+        <div class="item" style="--i:25"></div>
+        <div class="item" style="--i:26"></div>
+        <div class="item" style="--i:27"></div>
+        <div class="item" style="--i:28"></div>
+        <div class="item" style="--i:29"></div>
+        <div class="item" style="--i:30"></div>
+        <div class="item" style="--i:31"></div>
+        <div class="item" style="--i:32"></div>
+        <div class="item" style="--i:33"></div>
+
+    </div>
+</body>
+</html>

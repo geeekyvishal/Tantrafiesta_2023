@@ -1,0 +1,130 @@
+/* Reset some default styles */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: poppins;
+
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f0f0f0; */
+    background: linear-gradient(45deg, #f76f6f, #f7c06d, #55bbee, #67f797);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+
+/* For animated background in light mode */
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+
+
+
+:root{
+    --primary-color: #fefae0;
+    --secondary-color: #000814;
+    
+}
+
+
+.dark-theme{
+    --primary-color:#000106;
+    --secondary-color:#faf3e3;
+}
+
+#icon{
+    width: 30px;
+    cursor: pointer;
+
+}
+
+
+h2{
+    align-items: center;
+    color: #fb5607;
+}
+
+
+/* .dark-mode {
+    background-color: #333;
+    color: #fff;
+} */
+
+
+
+header {
+    background-color: var(--secondary-color);
+    /* background-image: url(wp3284839.gif); */
+    color: var(--primary-color);
+    text-align: center;
+    font-family: Verdana;
+    padding: 40px 0;
+}
+
+img:hover
+{
+  transform: scale(1.05);
+
+}
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: rgb(25, 0, 255); 
+}
+
+section {
+    width: 95%;
+    background-color: var(--secondary-color);
+    justify-content: center;
+    /* align-items: center; */
+    padding: 80px;
+    border-radius: 0px 50px 50px 0px;
+    margin: 20px 0;
+    color: var(--primary-color);
+}
+
+
+.contact-form{
+    background-color: var(--secondary-color);
+}
+
+
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: var(--secondary-color);
+    padding: 10px 0;
+}
